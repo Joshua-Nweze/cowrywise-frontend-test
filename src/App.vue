@@ -9,7 +9,7 @@
 
 <style>
 *{
-	overflow-x: hidden;
+	/* overflow-x: hidden; */
 }
 
 .search-section {

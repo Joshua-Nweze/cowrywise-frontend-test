@@ -18,7 +18,7 @@
                 </div>
             </div>
         </div>
-        <div class=" w-full images-container">
+        <div class="w-full images-container">
             <div class="images">
                 <SkeletonLoader v-if="!initialImageLoad"/>
                 <div v-else class="w-full">
@@ -26,8 +26,11 @@
                       :images="images"
                     />
 
-                    <div class="w-full flex justify-center">
-                        <button class="w-fit mt-10 px-10 py-4 rounded">Load more</button>
+                    <div class="w-full flex justify-center" v-if="images.length > 0">
+                        <button class="w-fit mt-10 px-10 py-4 rounded flex" @click="loadMore">
+                            Load more
+                            <SpinnerLoader v-if="loading"/>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -41,6 +44,7 @@ import ImagesGrid from '@/components/ImagesGrid.vue';
 import { onMounted, ref } from 'vue';
 import api from '@/api'
 import router from '@/router';
+import SpinnerLoader from '@/components/SpinnerLoader.vue';
 
 let { getInitialPhotos } = api
 
@@ -48,6 +52,8 @@ let images = ref([])
 let initialImageLoad = ref(false)
 
 let searchQuery = ref('')
+let page = ref(1)
+let loading = ref(false)
 
 onMounted(async () => {
     let imgReq = await getInitialPhotos()
@@ -55,12 +61,24 @@ onMounted(async () => {
     for (const image of imgReq.data.results) {
         images.value.push(image)
     }
-    console.log(images.value)
     initialImageLoad.value = true
 })
 
 function search() {
     router.push(`/search?query=${searchQuery.value}`)
+}
+
+async function loadMore() {
+    loading.value = true
+    page.value++ // paginate for the next batch of images
+
+    let imgReq = await getInitialPhotos(page.value)
+    
+    for (const image of imgReq.data.results) {
+        images.value.push(image)
+    }
+
+    loading.value = false
 }
 </script>
 

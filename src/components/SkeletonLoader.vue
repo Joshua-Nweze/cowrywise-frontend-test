@@ -19,13 +19,8 @@
 <style lang="scss" scoped>
 .loader-container {
     columns: 3;
-    /* margin: 20px; */
-  /* display: grid;
-  grid-template-columns: auto auto auto;
-  grid-auto-flow: row;
-  grid-template-rows: repeat(3);
-  grid-auto-rows: 5px; */
-  gap: 30px;
+    height: auto;
+    gap: 30px;
 }
 
 .loader {
@@ -37,14 +32,13 @@
     border-radius: 10px;
     position: relative;
     animation: shimmer 1.5s infinite;
+    overflow-x: hidden;
 }
 
 .loader-details {
     position: absolute;
     bottom: 20px;
     padding-left: 15px;
-    /* animation: shimmer 1.5s infinite; */
-
 }
 
 .loader-details  div {

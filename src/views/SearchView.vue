@@ -1,13 +1,13 @@
 <template>
     <div class="relative flex flex-col min-h-fit">
         <div class="p-24 px-36 search-section">
-            <div>
+            <div class="text-3xl">
                 <span v-if="!initialImageLoad">Searching for </span>
                 <span v-else>
                     <span v-if="images.length > 0">Search Results for </span>
                     <span v-else>No Reselts to show for </span>
                 </span>
-                <span>"{{ $route.query.query }}"</span>
+                <span class="text-gray-500">"{{ $route.query.query }}"</span>
             </div>
         </div>
         <div class=" w-full images-container">
