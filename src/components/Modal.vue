@@ -3,8 +3,8 @@
         <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" aria-hidden="true"></div>
 
         <div class="fixed inset-0 z-10 w-screen overflow-y-auto">
-            <div class="flex min-h-full min-w-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
-                <div class="relative w-[60%] transform rounded-lg text-left transition-all flex-col justify-center my-5">
+            <div class="flex min-h-full min-w-full items-end justify-center md:p-4 text-center sm:items-center p-2">
+                <div class="relative md:w-[60%] transform rounded-lg text-left transition-all flex-col justify-center my-5">
                     <div class="flex justify-end mb-5">
                         <i class="bi bi-x-lg text-white hover:cursor-pointer close" @click="$emit('closeModal')"></i>
                     </div>
@@ -29,7 +29,13 @@ defineEmits(['closeModal'])
 <style scoped>
 .close {
     position: absolute;
-    right: -60px;
+    top: -20px;
+}
+
+@media (min-width: 768px) {
+    .close {
+        right: -60px;
+    }
 }
 
 .imageAndProp img {
