@@ -1,6 +1,6 @@
 <template>
     <div class="relative flex flex-col min-h-fit">
-        <div class="p-24 px-36 search-section">
+        <div class="lg:p-24 lg:px-36 search-section">
             <div class="text-3xl">
                 <span v-if="!initialImageLoad">Searching for </span>
                 <span v-else>

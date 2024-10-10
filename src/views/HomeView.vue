@@ -1,6 +1,6 @@
 <template>
     <div class="relative flex flex-col min-h-fit">
-        <div class="p-24 px-36 search-section">
+        <div class="p-6 py-20 lg:p-24 lg:px-36 search-section">
             <div>
                 <div class="relative mt-2 rounded-md shadow-sm">
                     <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center px-6">
@@ -19,9 +19,9 @@
             </div>
         </div>
         <div class="w-full images-container">
-            <div class="images">
+            <div class="images ">
                 <SkeletonLoader v-if="!initialImageLoad"/>
-                <div v-else class="w-full">
+                <div v-else>
                     <ImagesGrid
                       :images="images"
                     />

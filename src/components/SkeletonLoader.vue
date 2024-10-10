@@ -2,7 +2,8 @@
     <div class="loader-container">
         <div
             v-for="i in 9"
-            class="loader" :class="`${'loader-' + i}`">
+            class="loader" :class="`${'loader-' + i}`"
+        >
             <div class="loader-details w-full flex flex-col gap-3">
                 <div class="w-1/2"></div>
                 <div class="w-1/4"></div>
@@ -18,13 +19,37 @@
 
 <style lang="scss" scoped>
 .loader-container {
-    columns: 3;
-    height: auto;
+    columns: 1;
     gap: 30px;
+    column-width: 300px;
+
+}
+
+// tablet view
+@media (min-width: 600px) {
+    .loader-container {
+        columns: 2;
+        column-width: 250px;
+    }
+}
+
+// sm-desktop view
+@media (min-width: 1000px) {
+    .loader-container {
+        columns: 3;
+        column-width: 250px;
+    }
+}
+
+// lg-desktop-view
+@media (min-width: 1200px) {
+    .loader-container {
+        columns: 3;
+        column-width: 330px;
+    }
 }
 
 .loader {
-    width: 330px;
     /* height: auto; */
     margin-bottom: 8px;
     background: var(--skeleton-loader-bg);
