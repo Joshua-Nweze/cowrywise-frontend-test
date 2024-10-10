@@ -1,7 +1,7 @@
 <template>
     <div class="relative flex flex-col min-h-fit">
-        <div class="lg:p-24 lg:px-36 search-section">
-            <div class="text-3xl">
+        <div class="p-6 py-20 lg:p-24 lg:px-36 search-section">
+            <div class="text-2xl md:text-3xl">
                 <span v-if="!initialImageLoad">Searching for </span>
                 <span v-else>
                     <span v-if="images.length > 0">Search Results for </span>
@@ -20,8 +20,8 @@
 
                     <div class="w-full flex justify-center" v-if="images.length > 0">
                         <button class="w-fit mt-10 px-10 py-4 rounded flex" @click="loadMore">
-                            Load more
                             <SpinnerLoader v-if="loading"/>
+                            <span v-else>Load more</span>
                         </button>
                     </div>
                 </div>

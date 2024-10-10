@@ -28,8 +28,8 @@
 
                     <div class="w-full flex justify-center" v-if="images.length > 0">
                         <button class="w-fit mt-10 px-10 py-4 rounded flex" @click="loadMore">
-                            Load more
                             <SpinnerLoader v-if="loading"/>
+                            <span v-else>Load more</span>
                         </button>
                     </div>
                 </div>

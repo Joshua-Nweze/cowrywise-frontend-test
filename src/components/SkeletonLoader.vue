@@ -26,7 +26,7 @@
 }
 
 // tablet view
-@media (min-width: 600px) {
+@media (min-width: 670px) {
     .loader-container {
         columns: 2;
         column-width: 250px;

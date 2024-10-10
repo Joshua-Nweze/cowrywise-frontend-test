@@ -1,6 +1,6 @@
 <template>
     <div
-        class="ps-3 overflow-x-scroll lg:overflow-visible"
+        class="overflow-x-scroll lg:overflow-visible"
     >
         <svg
             class="text-gray-300 animate-spin"

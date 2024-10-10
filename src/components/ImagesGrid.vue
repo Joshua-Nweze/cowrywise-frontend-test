@@ -5,14 +5,14 @@
             :key="index"
             class="image hover:cursor-pointer"
             @click="openModal(img)"
-            :class="`h-[${img.height}px]`"
+            :style="{ height: (img.height / 11) + 'px'}"
         >
             <img
-                @loadstart="loadingImage(index)"
                 :src="img.urls.raw" 
                 :alt="img.alt_description"
                 :height="img.height"
                 loading="lazy"
+                class="w-full"
             >
             <div class="image-details text-white w-full flex flex-col gap-3">
                 <div class="text-xl"> {{ img.user.first_name }} {{ img.user.last_name }} </div>
@@ -54,19 +54,23 @@ function closeModal() {
 </script>
 
 <style lang="scss" scoped>
+*{
+    overflow-x: hidden;
+}
+
 .image-container {
     columns: 1;
     gap: 30px;
     column-width: 300px;
-    margin: 0 40px;
+    margin: 0 25px;
 }
 
 // tablet view
-@media (min-width: 600px) {
+@media (min-width: 670px) {
     .image-container {
         columns: 2;
         column-width: 200px;
-        margin: 0;
+        margin: 0 10px;
     }
 
     .image {
@@ -92,11 +96,11 @@ function closeModal() {
     .image-container {
         columns: 3;
         margin: 0;
-        column-width: 330px;
+        // column-width: 330px;
     }
 
     .image {
-        width: 330px;
+        // width: 330px;
     }
 }
 
@@ -110,6 +114,7 @@ img {
     background: var(--skeleton-loader-bg);
     border-radius: 10px;
     position: relative;
+    width: 300px;
 }
 
 .image::before {
